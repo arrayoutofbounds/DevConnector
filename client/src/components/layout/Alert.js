@@ -19,4 +19,5 @@ const mapStateToProps = (state) => ({
   alerts: state.alert,
 });
 
+// connected to the redux store and will show the array of errors.
 export default connect(mapStateToProps, null)(Alert);
