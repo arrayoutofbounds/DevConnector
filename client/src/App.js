@@ -13,7 +13,7 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 //Redux
 import { Provider } from "react-redux"; // connects react to redux
 import store from "./store";
-
+import CreateProfile from "./components/profile-form/CreateProfile";
 import { loadUser } from "./actions/auth";
 
 if (localStorage.token) {
@@ -38,6 +38,11 @@ const App = () => {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute
+                exact
+                path="/create-profile"
+                component={CreateProfile}
+              />
             </switch>
           </section>
         </Fragment>
