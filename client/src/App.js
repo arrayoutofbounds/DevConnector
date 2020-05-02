@@ -18,6 +18,7 @@ import EditProfile from "./components/profile-form/EditProfile";
 import AddExperience from "./components/profile-form/AddExperience";
 import { loadUser } from "./actions/auth";
 import AddEducation from "./components/profile-form/AddEducation";
+import Profiles from "./components/profiles/Profiles";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token); // sets header for all axios requests
@@ -37,9 +38,10 @@ const App = () => {
           <Route path="/" exact component={Landing} />
           <section className="container">
             <Alert />
-            <switch>
+            <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/profiles" component={Profiles} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute
                 exact
@@ -61,7 +63,7 @@ const App = () => {
                 path="/add-education"
                 component={AddEducation}
               />
-            </switch>
+            </Switch>
           </section>
         </Fragment>
       </Router>

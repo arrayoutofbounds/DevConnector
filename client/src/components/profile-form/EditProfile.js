@@ -46,7 +46,7 @@ const EditProfile = ({
       instagram: loading || !profile.social ? "" : profile.social.instagram,
       linkedin: loading || !profile.social ? "" : profile.social.linkedin,
     });
-  }, [loading]); // only run when loading prop changes.
+  }, [loading, getCurrentProfile]); // only run when loading prop changes.
 
   const {
     company,
