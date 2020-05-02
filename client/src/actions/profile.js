@@ -30,7 +30,9 @@ export const getCurrentProfile = () => async (dispatch) => {
 
 // get all profiles
 export const getProfiles = () => async (dispatch) => {
+  // clear a single profile to ensure it does not mess with the one clicked on later on
   dispatch({ type: CLEAR_PROFILE });
+
   try {
     const res = await axios.get("/api/profile");
     dispatch({
@@ -51,12 +53,14 @@ export const getProfiles = () => async (dispatch) => {
 // get all profiles
 export const getProfileById = (userId) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/profile/${userId}`);
+    const res = await axios.get(`/api/profile/user/${userId}`);
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
     });
   } catch (error) {
+    console.log(error);
+    console.log("error.response", error.response);
     dispatch({
       type: PROFILE_ERROR,
       payload: {

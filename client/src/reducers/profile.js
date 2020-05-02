@@ -20,10 +20,15 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case GET_PROFILE:
-    case GET_PROFILES:
       return {
         ...state,
         profile: payload,
+        loading: false,
+      };
+    case GET_PROFILES:
+      return {
+        ...state,
+        profiles: payload,
         loading: false,
       };
     case UPDATE_PROFILE:
