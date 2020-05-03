@@ -1,6 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://anmol123:anmol123@devconnector-tk5pp.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "thisisthesecrettoken",
-  "githubClientId": "c72de53daab004bb596c",
-  "githubSecret": "2f433aca6649642f6ffdd356adad13218614a773"
-}

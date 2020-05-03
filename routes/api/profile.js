@@ -326,8 +326,13 @@ router.delete("/education/:education_id", auth, async (req, res) => {
 // @desc Get user repos from github
 // @access Public
 router.get("/github/:username", async (req, res) => {
+  console.log(req.params.username);
   try {
     const uri = encodeURI(
+      `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc`
+    );
+
+    console.log(
       `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc`
     );
     const headers = {
@@ -338,6 +343,7 @@ router.get("/github/:username", async (req, res) => {
     const gitHubResponse = await axios.get(uri, { headers });
     return res.json(gitHubResponse.data);
   } catch (error) {
+    console.log(error);
     console.error(error.message);
     res.status(500).send("Server error");
   }
