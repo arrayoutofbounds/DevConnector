@@ -14,11 +14,6 @@ import setAuthToken from "../utils/setAuthToken";
 
 // load user from database into frontend redux store
 export const loadUser = () => async (dispatch) => {
-  // always send token in header if its in local storage
-  if (localStorage.token) {
-    setAuthToken(localStorage.token); // sets header for all axios requests
-  }
-
   try {
     const res = await axios.get("/api/auth");
 
